@@ -28001,6 +28001,8 @@
 	  _createClass(Index, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      var $navWrap = this.$navWrap = $('.js-nav-wrap');
 	      var $navInner = this.$navInner = $('.js-nav-inner');
 	      $navWrap.on('mousemove', function (e) {
@@ -28011,11 +28013,31 @@
 	        var percentScroll = (e.pageY - $navWrap.offset().top - 50) / (outerHeight - 100);
 	        $navInner.velocity('stop').velocity('scroll', { container: $navWrap, offset: percentScroll * scrollableDistance, duration: 50 });
 	      });
+	      document.addEventListener('keydown', function (e) {
+	        return _this2.handleKeyDown(e.key);
+	      });
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
+	      var _this3 = this;
+	
 	      this.$navWrap.off('mousemove');
+	      document.removeEventListener('keydown', function (e) {
+	        return _this3.handleKeyDown(e.key);
+	      });
+	    }
+	  }, {
+	    key: 'handleKeyDown',
+	    value: function handleKeyDown(key) {
+	      switch (key) {
+	        case 'ArrowRight':
+	          this.nextImg();
+	          break;
+	        case 'ArrowLeft':
+	          this.prevImg();
+	          break;
+	      }
 	    }
 	  }, {
 	    key: 'chooseImg',
@@ -28050,7 +28072,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this4 = this;
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -28072,7 +28094,7 @@
 	                  {
 	                    className: 'col h-100 nav-img',
 	                    onClick: function onClick() {
-	                      return _this2.chooseImg(-1);
+	                      return _this4.chooseImg(-1);
 	                    }
 	                  },
 	                  _react2.default.createElement(
@@ -28089,7 +28111,7 @@
 	                    className: 'row',
 	                    key: img.src,
 	                    onClick: function onClick() {
-	                      return _this2.chooseImg(i);
+	                      return _this4.chooseImg(i);
 	                    }
 	                  },
 	                  _react2.default.createElement('img', {
@@ -28106,7 +28128,7 @@
 	                  {
 	                    className: 'col h-100 nav-img',
 	                    onClick: function onClick() {
-	                      return _this2.chooseImg(-1);
+	                      return _this4.chooseImg(-1);
 	                    }
 	                  },
 	                  _react2.default.createElement(
@@ -28119,7 +28141,7 @@
 	            )
 	          ),
 	          function () {
-	            if (_this2.state.i === -1) {
+	            if (_this4.state.i === -1) {
 	              return _react2.default.createElement(
 	                'div',
 	                { className: 'col-sm-10 col-md-11 home h-100' },
@@ -28147,7 +28169,7 @@
 	                        {
 	                          className: 'nav-link',
 	                          onClick: function onClick() {
-	                            return _this2.chooseImg(0);
+	                            return _this4.chooseImg(0);
 	                          }
 	                        },
 	                        'Photos'
@@ -28189,14 +28211,14 @@
 	                { className: 'col-sm-10 col-md-11 d-flex align-items-center hidden-xs-down display-container' },
 	                _react2.default.createElement('img', {
 	                  className: 'main-img',
-	                  srcSet: _this2.state.img.srcSet
+	                  srcSet: _this4.state.img.srcSet
 	                }),
 	                _react2.default.createElement(
 	                  'i',
 	                  {
 	                    className: 'material-icons left-chevron',
 	                    onClick: function onClick() {
-	                      return _this2.prevImg();
+	                      return _this4.prevImg();
 	                    }
 	                  },
 	                  'chevron_left'
@@ -28206,7 +28228,7 @@
 	                  {
 	                    className: 'material-icons right-chevron',
 	                    onClick: function onClick() {
-	                      return _this2.nextImg();
+	                      return _this4.nextImg();
 	                    }
 	                  },
 	                  'chevron_right'

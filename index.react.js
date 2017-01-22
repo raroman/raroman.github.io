@@ -29,9 +29,21 @@ class Index extends Component {
       const percentScroll = (e.pageY - $navWrap.offset().top - 50) / (outerHeight - 100);
       $navInner.velocity('stop').velocity('scroll', { container: $navWrap, offset: percentScroll * scrollableDistance, duration: 50 });
     });
+    document.addEventListener('keydown', (e) => this.handleKeyDown(e.key));
   }
   componentWillUnmount() {
     this.$navWrap.off('mousemove');
+    document.removeEventListener('keydown', (e) => this.handleKeyDown(e.key));
+  }
+  handleKeyDown(key) {
+    switch (key) {
+      case 'ArrowRight':
+        this.nextImg();
+        break;
+      case 'ArrowLeft':
+        this.prevImg();
+        break;
+    }
   }
   chooseImg(i) {
     i = i || 0;
