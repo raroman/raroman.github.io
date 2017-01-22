@@ -16,6 +16,7 @@ body,
   font-family: 'News Cycle', sans-serif;
   height: 100%;
   background: #222;
+  user-select: none;
 }
 
 .nav-wrap {
@@ -84,7 +85,7 @@ body,
   background: url('~img/home.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 -100px;
+  background-position: center bottom;
   padding: 0;
   border-left: 8px solid #fff;
   border-right: 8px solid #fff;

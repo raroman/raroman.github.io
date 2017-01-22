@@ -61,7 +61,7 @@ class Index extends Component {
     return (
       <div className="container-fluid">
         <div className="row h-100">
-          <div className="col-1 nav-wrap js-nav-wrap">
+          <div className="col-sm-2 col-md-1 nav-wrap js-nav-wrap">
             <div className="js-nav-inner">
               <div className="row">
                 <div
@@ -98,7 +98,7 @@ class Index extends Component {
           {(() => {
             if (this.state.i === -1) {
               return (
-                <div className="col-11 home h-100">
+                <div className="col-sm-10 col-md-11 home h-100">
                   <div className="home-top d-flex justify-content-between align-items-end">
                     <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
                     <ul className="nav">
@@ -133,7 +133,7 @@ class Index extends Component {
               )
             } else {
               return (
-                <div className="col-11 d-flex align-items-center display-container">
+                <div className="col-sm-10 col-md-11 d-flex align-items-center hidden-xs-down display-container">
                   <img
                     className="main-img"
                     srcSet={this.state.img.srcSet}
