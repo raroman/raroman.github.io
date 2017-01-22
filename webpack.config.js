@@ -43,7 +43,7 @@ module.exports = {
     ]
   },
   responsiveLoader: {
-    sizes: [200, 1600]
+    sizes: [1600, 200]
   },
   postcss() {
     return [autoprefixer({ browsers: ['last 2 versions'] })];
