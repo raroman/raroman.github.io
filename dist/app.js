@@ -28032,9 +28032,11 @@
 	    value: function handleKeyDown(key) {
 	      switch (key) {
 	        case 'ArrowRight':
+	        case 'ArrowDown':
 	          this.nextImg();
 	          break;
 	        case 'ArrowLeft':
+	        case 'ArrowUp':
 	          this.prevImg();
 	          break;
 	      }
@@ -28150,7 +28152,7 @@
 	                  { className: 'home-top row justify-content-end' },
 	                  _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md d-flex align-items-end' },
+	                    { className: 'col-lg d-flex align-items-end' },
 	                    _react2.default.createElement(
 	                      'h1',
 	                      { className: 'display-3' },
@@ -28164,7 +28166,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-auto d-flex align-items-end' },
+	                    { className: 'col-lg-auto d-flex align-items-end' },
 	                    _react2.default.createElement(
 	                      'ul',
 	                      { className: 'nav' },
@@ -28251,61 +28253,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-dialog modal-lg', role: 'document' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'modal-content' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'modal-header' },
-	                _react2.default.createElement(
-	                  'h5',
-	                  { className: 'modal-title' },
-	                  'Contact Reid'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'modal-body' },
-	                _react2.default.createElement(
-	                  'form',
-	                  null,
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group' },
-	                    _react2.default.createElement(
-	                      'label',
-	                      { htmlFor: 'exampleInputEmail1' },
-	                      'Reply To'
-	                    ),
-	                    _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'exampleInputEmail1', 'aria-describedby': 'emailHelp', placeholder: 'pictureme@beautiful.com' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group' },
-	                    _react2.default.createElement(
-	                      'label',
-	                      { htmlFor: 'message' },
-	                      'Message'
-	                    ),
-	                    _react2.default.createElement('textarea', { className: 'form-control', id: 'message', rows: '3' })
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'modal-footer' },
-	                _react2.default.createElement(
-	                  'button',
-	                  { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
-	                  'Cancel'
-	                ),
-	                _react2.default.createElement(
-	                  'button',
-	                  { type: 'button', className: 'btn btn-primary' },
-	                  'Send Message'
-	                )
-	              )
-	            )
+	            _react2.default.createElement('div', { className: 'typeform-widget', 'data-url': 'https://reid12.typeform.com/to/k9WfdI', 'data-text': 'Personal Contact', style: { width: '100%', height: '500px' } })
 	          )
 	        ),
 	        _react2.default.createElement(

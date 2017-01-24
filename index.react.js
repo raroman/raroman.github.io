@@ -38,9 +38,11 @@ class Index extends Component {
   handleKeyDown(key) {
     switch (key) {
       case 'ArrowRight':
+      case 'ArrowDown':
         this.nextImg();
         break;
       case 'ArrowLeft':
+      case 'ArrowUp':
         this.prevImg();
         break;
     }
@@ -112,10 +114,10 @@ class Index extends Component {
               return (
                 <div className="col-sm-10 col-md-11 home h-100">
                   <div className="home-top row justify-content-end">
-                    <div className="col-md d-flex align-items-end">
+                    <div className="col-lg d-flex align-items-end">
                       <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
                     </div>
-                    <div className="col-md-auto d-flex align-items-end">
+                    <div className="col-lg-auto d-flex align-items-end">
                       <ul className="nav">
                         <li className="nav-item">
                           <a
@@ -172,27 +174,7 @@ class Index extends Component {
 
         <div className="modal fade contact-modal">
           <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Contact Reid</h5>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Reply To</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="pictureme@beautiful.com" />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="message">Message</label>
-                    <textarea className="form-control" id="message" rows="3"></textarea>
-                  </div>
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" className="btn btn-primary">Send Message</button>
-              </div>
-            </div>
+            <div className="typeform-widget" data-url="https://reid12.typeform.com/to/k9WfdI" data-text="Personal Contact" style={{ width: '100%', height: '500px' }}></div>
           </div>
         </div>
 
