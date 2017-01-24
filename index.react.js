@@ -111,33 +111,37 @@ class Index extends Component {
             if (this.state.i === -1) {
               return (
                 <div className="col-sm-10 col-md-11 home h-100">
-                  <div className="home-top d-flex justify-content-between align-items-end">
-                    <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
-                    <ul className="nav">
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          onClick={() => this.chooseImg(0)}
-                        >Photos
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          data-toggle="modal"
-                          data-target=".about-modal"
-                        >About
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          data-toggle="modal"
-                          data-target=".contact-modal"
-                        >Contact
-                        </a>
-                      </li>
-                    </ul>
+                  <div className="home-top row justify-content-end">
+                    <div className="col-md d-flex align-items-end">
+                      <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
+                    </div>
+                    <div className="col-md-auto d-flex align-items-end">
+                      <ul className="nav">
+                        <li className="nav-item">
+                          <a
+                            className="nav-link"
+                            onClick={() => this.chooseImg(0)}
+                          >Photos
+                          </a>
+                        </li>
+                        <li className="nav-item">
+                          <a
+                            className="nav-link"
+                            data-toggle="modal"
+                            data-target=".about-modal"
+                          >About
+                          </a>
+                        </li>
+                        <li className="nav-item">
+                          <a
+                            className="nav-link"
+                            data-toggle="modal"
+                            data-target=".contact-modal"
+                          >Contact
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   <div className="home-bottom">
                   </div>
