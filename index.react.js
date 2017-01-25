@@ -65,12 +65,14 @@ class Index extends Component {
     }
   }
   chooseImg(i) {
-    i = i || 0;
-    const img = images[i];
-    this.setState({
-      img,
-      i
-    });
+    if ($('.hidden-xs-down').is(':visible')) {
+      i = i || 0;
+      const img = images[i];
+      this.setState({
+        img,
+        i
+      });
+    }
   }
   prevImg() {
     const i = this.state.i - 1;
@@ -95,7 +97,7 @@ class Index extends Component {
           {(() => {
             if (this.state.i === -1) {
               return (
-                <div className="col-sm-10 col-md-11 push-sm-2 push-md-1 home h-100">
+                <div className="col-sm-10 col-lg-11 push-sm-2 push-lg-1 home h-100">
                   <div className="home-top row justify-content-end">
                     <div className="col-lg d-flex align-items-end">
                       <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
@@ -134,7 +136,7 @@ class Index extends Component {
               )
             } else {
               return (
-                <div className="col-sm-10 col-md-11 push-sm-2 push-md-1 d-flex align-items-center hidden-xs-down display-container">
+                <div className="col-sm-10 col-lg-11 push-sm-2 push-lg-1 d-flex align-items-center hidden-xs-down display-container">
                   <img
                     className="main-img"
                     srcSet={this.state.img.srcSet}
@@ -153,7 +155,7 @@ class Index extends Component {
               )
             }
           })()}
-          <div className="col-sm-2 col-md-1 pull-sm-10 pull-md-11 nav-wrap js-nav-wrap">
+          <div className="col-sm-2 col-lg-1 pull-sm-10 pull-lg-11 nav-wrap js-nav-wrap">
             <div className="js-nav-inner">
               <div className="row">
                 <div

@@ -28069,12 +28069,14 @@
 	  }, {
 	    key: 'chooseImg',
 	    value: function chooseImg(i) {
-	      i = i || 0;
-	      var img = images[i];
-	      this.setState({
-	        img: img,
-	        i: i
-	      });
+	      if ($('.hidden-xs-down').is(':visible')) {
+	        i = i || 0;
+	        var img = images[i];
+	        this.setState({
+	          img: img,
+	          i: i
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'prevImg',
@@ -28111,7 +28113,7 @@
 	            if (_this4.state.i === -1) {
 	              return _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-10 col-md-11 push-sm-2 push-md-1 home h-100' },
+	                { className: 'col-sm-10 col-lg-11 push-sm-2 push-lg-1 home h-100' },
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'home-top row justify-content-end' },
@@ -28183,7 +28185,7 @@
 	            } else {
 	              return _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-10 col-md-11 push-sm-2 push-md-1 d-flex align-items-center hidden-xs-down display-container' },
+	                { className: 'col-sm-10 col-lg-11 push-sm-2 push-lg-1 d-flex align-items-center hidden-xs-down display-container' },
 	                _react2.default.createElement('img', {
 	                  className: 'main-img',
 	                  srcSet: _this4.state.img.srcSet
@@ -28213,7 +28215,7 @@
 	          }(),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-2 col-md-1 pull-sm-10 pull-md-11 nav-wrap js-nav-wrap' },
+	            { className: 'col-sm-2 col-lg-1 pull-sm-10 pull-lg-11 nav-wrap js-nav-wrap' },
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'js-nav-inner' },
