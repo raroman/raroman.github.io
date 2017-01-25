@@ -28253,7 +28253,61 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-dialog modal-lg', role: 'document' },
-	            _react2.default.createElement('div', { className: 'typeform-widget', 'data-url': 'https://reid12.typeform.com/to/k9WfdI', 'data-text': 'Personal Contact', style: { width: '100%', height: '500px' } })
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'modal-content' },
+	              _react2.default.createElement(
+	                'form',
+	                { action: 'https://formspree.io/mailto@reidroman.com', method: 'POST' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'modal-header' },
+	                  _react2.default.createElement(
+	                    'h5',
+	                    { className: 'modal-title' },
+	                    'Contact Reid'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'modal-body' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { htmlFor: 'reply-to' },
+	                      'Reply To'
+	                    ),
+	                    _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'reply-to', name: 'reply-to', 'aria-describedby': 'emailHelp', placeholder: 'pictureme@beautiful.com' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { htmlFor: 'message' },
+	                      'Message'
+	                    ),
+	                    _react2.default.createElement('textarea', { className: 'form-control', id: 'message', name: 'message', rows: '3' })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'modal-footer' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
+	                    'Cancel'
+	                  ),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { type: 'submit', className: 'btn btn-primary' },
+	                    'Send Message'
+	                  )
+	                )
+	              )
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(

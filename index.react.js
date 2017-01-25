@@ -174,7 +174,27 @@ class Index extends Component {
 
         <div className="modal fade contact-modal">
           <div className="modal-dialog modal-lg" role="document">
-            <div className="typeform-widget" data-url="https://reid12.typeform.com/to/k9WfdI" data-text="Personal Contact" style={{ width: '100%', height: '500px' }}></div>
+            <div className="modal-content">
+              <form action="https://formspree.io/mailto@reidroman.com" method="POST">
+                <div className="modal-header">
+                  <h5 className="modal-title">Contact Reid</h5>
+                </div>
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label htmlFor="reply-to">Reply To</label>
+                    <input type="email" className="form-control" id="reply-to" name="reply-to" aria-describedby="emailHelp" placeholder="pictureme@beautiful.com" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="message">Message</label>
+                    <textarea className="form-control" id="message" name="message" rows="3"></textarea>
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="submit" className="btn btn-primary">Send Message</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
