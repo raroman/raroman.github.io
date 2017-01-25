@@ -19,21 +19,31 @@ class Index extends Component {
     };
   }
   componentDidMount() {
-    const $navWrap = this.$navWrap = $('.js-nav-wrap');
-    const $navInner = this.$navInner = $('.js-nav-inner');
-    $navWrap.on('mousemove', (e) => {
-      const innerHeight = $navInner.outerHeight();
-      const outerHeight = $navWrap.outerHeight();
-      const scrollableDistance = innerHeight - outerHeight;
-      // the 50 and 100 are to pad a little, guarantees you can scroll all the way top and bottom
-      const percentScroll = (e.pageY - $navWrap.offset().top - 50) / (outerHeight - 100);
-      $navInner.velocity('stop').velocity('scroll', { container: $navWrap, offset: percentScroll * scrollableDistance, duration: 50 });
-    });
-    document.addEventListener('keydown', (e) => this.handleKeyDown(e.key));
+      const $navWrap = this.$navWrap = $('.js-nav-wrap');
+      const $navInner = this.$navInner = $('.js-nav-inner');
+      this.updateDimensions();
+      document.addEventListener('keydown', (e) => this.handleKeyDown(e.key));
+      window.addEventListener('resize', () => this.updateDimensions());
   }
   componentWillUnmount() {
     this.$navWrap.off('mousemove');
     document.removeEventListener('keydown', (e) => this.handleKeyDown(e.key));
+    window.removeEventListener('resize', () => this.updateDimensions());
+  }
+  updateDimensions() {
+    const $navWrap = this.$navWrap;
+    const $navInner = this.$navInner;
+    $navWrap.off('mousemove');
+    if ($('.hidden-xs-down').is(':visible')) {
+      $navWrap.on('mousemove', (e) => {
+        const innerHeight = $navInner.outerHeight();
+        const outerHeight = $navWrap.outerHeight();
+        const scrollableDistance = innerHeight - outerHeight;
+        // the 50 and 100 are to pad a little, guarantees you can scroll all the way top and bottom
+        const percentScroll = (e.pageY - $navWrap.offset().top - 50) / (outerHeight - 100);
+        $navInner.velocity('stop').velocity('scroll', { container: $navWrap, offset: percentScroll * scrollableDistance, duration: 50 });
+      });
+    }
   }
   handleKeyDown(key) {
     switch (key) {
@@ -45,6 +55,13 @@ class Index extends Component {
       case 'ArrowUp':
         this.prevImg();
         break;
+    }
+  }
+  goToPhotos() {
+    if ($('.hidden-xs-down').is(':visible')) {
+      this.chooseImg(0);
+    } else {
+      $('.js-nav-wrap').velocity('scroll', { duration: 500 })
     }
   }
   chooseImg(i) {
@@ -75,44 +92,10 @@ class Index extends Component {
     return (
       <div className="container-fluid">
         <div className="row h-100">
-          <div className="col-sm-2 col-md-1 nav-wrap js-nav-wrap">
-            <div className="js-nav-inner">
-              <div className="row">
-                <div
-                  className="col h-100 nav-img"
-                  onClick={() => this.chooseImg(-1)}
-                >
-                  <p className="nav-top">Home</p>
-                </div>
-              </div>
-              {images.map((img, i) => {
-                return (
-                  <div
-                    className="row"
-                    key={img.src}
-                    onClick={() => this.chooseImg(i)}
-                  >
-                    <img
-                      className={classNames('col', 'h-100', 'nav-img')}
-                      srcSet={img}
-                    />
-                  </div>
-                );
-              })}
-              <div className="row">
-                <div
-                  className="col h-100 nav-img"
-                  onClick={() => this.chooseImg(-1)}
-                >
-                  <p className="nav-top">Home</p>
-                </div>
-              </div>
-            </div>
-          </div>
           {(() => {
             if (this.state.i === -1) {
               return (
-                <div className="col-sm-10 col-md-11 home h-100">
+                <div className="col-sm-10 col-md-11 push-sm-2 push-md-1 home h-100">
                   <div className="home-top row justify-content-end">
                     <div className="col-lg d-flex align-items-end">
                       <h1 className="display-3">Reid Roman <small className="text-muted">Photography</small></h1>
@@ -122,7 +105,7 @@ class Index extends Component {
                         <li className="nav-item">
                           <a
                             className="nav-link"
-                            onClick={() => this.chooseImg(0)}
+                            onClick={() => this.goToPhotos()}
                           >Photos
                           </a>
                         </li>
@@ -151,7 +134,7 @@ class Index extends Component {
               )
             } else {
               return (
-                <div className="col-sm-10 col-md-11 d-flex align-items-center hidden-xs-down display-container">
+                <div className="col-sm-10 col-md-11 push-sm-2 push-md-1 d-flex align-items-center hidden-xs-down display-container">
                   <img
                     className="main-img"
                     srcSet={this.state.img.srcSet}
@@ -170,12 +153,46 @@ class Index extends Component {
               )
             }
           })()}
+          <div className="col-sm-2 col-md-1 pull-sm-10 pull-md-11 nav-wrap js-nav-wrap">
+            <div className="js-nav-inner">
+              <div className="row">
+                <div
+                  className="col hidden-xs-down h-100 nav-img"
+                  onClick={() => this.chooseImg(-1)}
+                >
+                  <p className="nav-top">Home</p>
+                </div>
+              </div>
+              {images.map((img, i) => {
+                return (
+                  <div
+                    className="row"
+                    key={img.src}
+                    onClick={() => this.chooseImg(i)}
+                  >
+                    <img
+                      className={classNames('col', 'h-100', 'nav-img')}
+                      srcSet={img}
+                    />
+                  </div>
+                );
+              })}
+              <div className="row">
+                <div
+                  className="col hidden-xs-down h-100 nav-img"
+                  onClick={() => this.chooseImg(-1)}
+                >
+                  <p className="nav-top">Home</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="modal fade contact-modal">
           <div className="modal-dialog modal-lg" role="document">
             <div className="modal-content">
-              <form action="https://formspree.io/mailto@reidroman.com" method="POST">
+              <form id="contact-me" action="https://formspree.io/mailto@reidroman.com" method="POST">
                 <div className="modal-header">
                   <h5 className="modal-title">Contact Reid</h5>
                 </div>
@@ -191,7 +208,15 @@ class Index extends Component {
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  <button type="submit" className="btn btn-primary">Send Message</button>
+                  <button
+                    className="g-recaptcha btn btn-primary"
+                    data-sitekey="6LdTGRMUAAAAADMxtXYd5LVRFvedvsJQu9FzmO-w"
+                    data-size="invisible"
+                    data-badge="inline"
+                    data-callback="contactMe"
+                  >
+                    Send Message
+                  </button>
                 </div>
               </form>
             </div>
