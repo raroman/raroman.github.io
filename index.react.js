@@ -141,21 +141,23 @@ class Index extends Component {
                     className="main-img"
                     srcSet={this.state.img.srcSet}
                   />
-                  <i
-                    className="material-icons left-chevron"
-                    onClick={() => this.prevImg()}
-                  >chevron_left
-                  </i>
-                  <i
-                    className="material-icons right-chevron"
-                    onClick={() => this.nextImg()}
-                  >chevron_right
-                  </i>
+                  <div className="u-trbl d-flex justify-content-between align-items-center">
+                    <i
+                      className="material-icons"
+                      onClick={() => this.prevImg()}
+                    >chevron_left
+                    </i>
+                    <i
+                      className="material-icons"
+                      onClick={() => this.nextImg()}
+                    >chevron_right
+                    </i>
+                  </div>
                 </div>
               )
             }
           })()}
-          <div className="col-sm-2 col-lg-1 pull-sm-10 pull-lg-11 nav-wrap js-nav-wrap">
+          <div className="col-sm-2 col-lg-1 pull-sm-10 pull-lg-11 nav-wrap js-nav-wrap h-100">
             <div className="js-nav-inner">
               <div className="row">
                 <div

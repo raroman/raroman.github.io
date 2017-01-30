@@ -52,17 +52,10 @@ body,
 }
 
 .material-icons {
-  position: absolute;
   font-size: 80px;
   cursor: pointer;
   text-shadow: 0 0 6px #888;
   visibility: hidden;
-  &.left-chevron {
-    left: 0;
-  }
-  &.right-chevron {
-    right: 0;
-  }
 }
 
 .display-container:hover .material-icons {
@@ -115,6 +108,14 @@ body,
 
 .grecaptcha-badge {
   display: none;
+}
+
+.u-trbl {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 textarea {
